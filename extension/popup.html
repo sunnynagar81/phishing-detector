@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <h1>Phishing Detector</h1>
+
+  <div class="tabs">
+    <button class="tab active" data-mode="url">URL</button>
+    <button class="tab" data-mode="sms">SMS</button>
+    <button class="tab" data-mode="email">Email</button>
+  </div>
+
+  <div id="card" class="card loading">
+    <div id="status">Checking...</div>
+    <div id="prob"></div>
+  </div>
+
+  <div id="url"></div>
+
+  <div id="reasonsBox" hidden>
+    <h2>Why?</h2>
+    <ul id="reasons"></ul>
+  </div>
+
+  <div id="urlPane">
+    <div class="manual">
+      <input id="manualUrl" type="text" placeholder="Check any URL..." />
+      <button id="checkBtn">Check</button>
+    </div>
+    <button id="rescanBtn" class="secondary">Rescan this page</button>
+  </div>
+
+  <div id="textPane" hidden>
+    <input id="subject" type="text" placeholder="Email subject" hidden />
+    <textarea id="textInput" rows="5" placeholder="Paste the message here..."></textarea>
+    <button id="analyzeBtn" class="full">Analyze</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

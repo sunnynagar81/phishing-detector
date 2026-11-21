@@ -3,5 +3,11 @@ __pycache__/
 *.pyc
 .env
 node_modules/
-backend/models/*.joblib
+dist/
 .DS_Store
+phishing.db
+
+# trained models and datasets (too large, regenerate with the scripts)
+backend/app/models/*.joblib
+backend/data/*.csv
+backend/data/*.tsv
