@@ -51,7 +51,10 @@ X_held = featurize(tranco_urls(held_domains))  # unseen real sites, all should b
 
 models = {
     "logistic_regression": make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000)),
-    "random_forest": RandomForestClassifier(n_estimators=150, max_depth=25, n_jobs=-1, random_state=42),
+    # Smaller forest so the saved file fits on GitHub and Render's free tier
+    "random_forest": RandomForestClassifier(
+        n_estimators=80, max_depth=18, min_samples_leaf=10, n_jobs=-1, random_state=42
+    ),
     "gradient_boosting": HistGradientBoostingClassifier(random_state=42),
 }
 
@@ -70,5 +73,5 @@ for name, model in models.items():
 
 print(f"\nBest model: {best_name} (F1 = {best_f1:.4f})")
 OUT.parent.mkdir(parents=True, exist_ok=True)
-joblib.dump({"model": best_model, "features": FEATURE_NAMES, "name": best_name}, OUT)
+joblib.dump({"model": best_model, "features": FEATURE_NAMES, "name": best_name}, OUT, compress=3)
 print(f"Saved to {OUT}")

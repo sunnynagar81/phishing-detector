@@ -5,8 +5,8 @@ numpy
 scikit-learn
 joblib
 shap
-sqlalchemy
-psycopg2-binary
+pymongo[srv]
+dnspython
 python-dotenv
 tldextract
 pydantic

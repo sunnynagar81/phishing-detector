@@ -8,6 +8,6 @@ dist/
 phishing.db
 
 # trained models and datasets (too large, regenerate with the scripts)
-backend/app/models/*.joblib
+
 backend/data/*.csv
 backend/data/*.tsv

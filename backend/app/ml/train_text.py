@@ -29,7 +29,7 @@ def train(name, texts, labels):
     pred = pipe.predict(X_test)
     print(classification_report(y_test, pred, target_names=["safe", "phishing"]))
     print(confusion_matrix(y_test, pred))
-    joblib.dump(pipe, OUT_DIR / f"{name}_model.joblib")
+    joblib.dump(pipe, OUT_DIR / f"{name}_model.joblib", compress=3)
     print(f"Saved app/models/{name}_model.joblib")
 
 
